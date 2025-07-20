@@ -695,6 +695,10 @@ require('lazy').setup({
         -- ts_ls = {},
         --
 
+        zls = {
+          cmd = { '/usr/local/bin/zls' },
+        },
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -780,6 +784,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         cs = { 'csharpier' },
+        zig = { 'zig fmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
