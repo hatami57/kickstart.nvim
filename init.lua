@@ -779,11 +779,19 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        cs = { 'csharpier' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      },
+      formatters = {
+        csharpier = {
+          command = 'csharpier',
+          args = { 'format', '$FILENAME' },
+          stdin = false,
+        },
       },
     },
   },
@@ -1022,6 +1030,11 @@ require('lazy').setup({
     },
   },
 })
+
+-- vim.o.expandtab = true
+-- vim.o.smartindent = true
+-- vim.o.tabstop = 2
+-- vim.o.shiftwidth = 2
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
