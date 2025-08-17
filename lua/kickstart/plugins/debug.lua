@@ -76,6 +76,13 @@ return {
       end,
       desc = 'Debug: See last session result.',
     },
+    {
+      '<F10>',
+      function()
+        require('dap').terminate()
+      end,
+      desc = 'Debug: Terminate',
+    },
   },
   config = function()
     local dap = require 'dap'
@@ -138,7 +145,17 @@ return {
 
     -- Install golang specific config
     require('dap-go').setup {
+      dap_configurations = {
+        {
+          -- Must be "go" or it will be ignored by the plugin
+          type = 'go',
+          name = 'Attach remote',
+          mode = 'remote',
+          request = 'attach',
+        },
+      },
       delve = {
+        path = 'dlv',
         -- On Windows delve must be run attached or it crashes.
         -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
         detached = vim.fn.has 'win32' == 0,
