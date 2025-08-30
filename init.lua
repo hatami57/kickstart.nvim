@@ -695,9 +695,9 @@ require('lazy').setup({
         -- ts_ls = {},
         --
 
-        zls = {
-          cmd = { '/usr/local/bin/zls' },
-        },
+        -- zls = {
+        --   cmd = { '/usr/local/bin/zls' },
+        -- },
 
         lua_ls = {
           -- cmd = { ... },
